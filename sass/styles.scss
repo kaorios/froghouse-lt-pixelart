@@ -1,0 +1,259 @@
+@import "variables"; 
+@import "bootstrap/normalize"; 
+@import "pixelart";
+
+body {
+  color: $font-color;
+  background-color: $bg-color;
+}
+h1 {
+  &:after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: $gray;
+    display: block;
+    margin: $spacer auto;
+  }
+}
+#header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 $spacer;
+  ul {
+    display: flex;
+    margin: 0;
+    li {
+      margin-right: $spacer;
+      a {
+        color: $font-color;
+        font-weight: bold;
+        text-decoration: none;
+        &:hover {
+          color: $link-color;
+        }
+      }
+    }
+  }
+}
+
+.flex-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.demo1 {
+  .canvas {
+    background: $main-color;
+    width: $dot*3;
+    height: $dot*3;
+    margin: $spacer*3 auto;
+    .pixel {
+      width: $dot;
+      height: $dot;
+      float: left;
+      &:nth-child(2) {
+        background: $font-color;
+      }
+      &:nth-child(4) {
+        background: $font-color;
+      }
+      &:nth-child(5) {
+        background: $font-color;
+      }
+      &:nth-child(6) {
+        background: $font-color;
+      }
+      &:nth-child(8) {
+        background: $font-color;
+      }
+    }
+  }
+}
+
+.demo2 {
+  .canvas1 {
+    background: green;
+    width: $dot;
+    height: $dot;
+    margin: $spacer*3 0;
+    box-shadow:
+      $dot $dot red,
+      $dot*3 $dot blue,
+  }
+  .canvas2 {
+    position: relative;
+    margin: $spacer*3 0;
+    width: $dot*4;
+    height: $dot*2;
+    &:after {
+      content: '';
+      position: absolute;
+      top: -$dot;
+      left: -$dot;
+      width: $dot;
+      height: $dot;
+      box-shadow: 
+        $dot $dot green,
+        $dot*2 $dot*2 red,
+        $dot*4 $dot*2 blue;
+    }
+  }
+}
+
+$demo3: (o o o k o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o)
+        (o o k b k o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o)
+        (o o k b k o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o)
+        (o o k b k o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o)
+        (o o k b k o o o o o o o o o o o o o o o o o o o o o o o o k o o o o o o o o o o o o o o o o o o k k o o o o o)
+        (o o k b b k o o o o o o o o o o o o o o o o o o o o o o k b k o o o o o o o o o o o o o o o o o k f k o o o o)
+        (o o k b b k o o o o o o o o o o o o o o o o o o o o o o k b k o o o o o o o o o o o o o o o o o o k f k o o o)
+        (o k b b b b k o o o k k o o o o o o o o o o o o o o o o b b b k o o o o o o o o o o o o o o o o o o k f k o o)
+        (o o k b b b k o o k f f k k o o o o o o o o o o o k k b b k b k o o o o o o o o o o o o o o o o o o k f f k o)
+        (o o k b b b b k o o k f f f k o o o o o o o o k k b b b k b k o o o o o o o o o o o o o o o o o o k f f f k o)
+        (o o k b b b b k o k k f f f k o o o o o k o k b b b b k k b k o o o o o o k o o o o o o o o o o o k f f f k o)
+        (o o k b b b b k k f f f f f f k o o o k b k b b k k k k b k o o o o o o k f k o o k k o o o o o o k f f f f k)
+        (o o o k b b k f f f f f f f f k o o o k b b b k k k k k b k o o o o o k f f k k k f f k k o o k k f f f f f k)
+        (o o o k b b k f f f f f f f f f k o o k b b b k k k p b k o o o o k k f f f k f f f f f f k k f f f f f f f k)
+        (o o o o k k f f f f f f f f f f k o k b b k k k p p p b k o o o k f f f f f f f f f f f f f f f f f f f f f k)
+        (o o o o k k f f f f f f f g f f k k b b b b k p p p b k o o o k f f f f f f f f f f f f f f f f f f f f f f k)
+        (o o o o o k f f f f f f f f g f k b b b b k p p p b b k o o o k f f f f f f f f f f f f f f f f f f f f f k o)
+        (o o o o o k f f f f f f f f g f k b b b k p p p b b k o o o k f f f f f f f f f f f f f f f f f f f f f f k k)
+        (o o o o o k f f f f f f f f g k b b b k k k b b b k o o o k g f f f f f f f f f f f f f f f f f f f f f g g k)
+        (o o o o o k k f f f f f f g g k b b k k b b b k k o o o o k f f f f f f f f f f f f f f f f f f f f f g g g k)
+        (o o o o k f k f f f f g g k k b b b k b b k k f f k o o k g f f f f f f f f f f f f f f f f f f f f f f g k o)
+        (o o o k f k b k k g g k k b b b b b b b k f f f f f k o k g g f f f f f f f f f f f f f f f f f f f f f k o o)
+        (o k k f k b b b b k k b b b b b b b b b k f f f f k k o k g g f f f f f f f f f f f f f f g f f f f f g k o o)
+        (o k f f w b b b b b b b b k k k b b b b k f f f f f k k k k k g f f f f f f f f f f f f g g f f f f g g k o o)
+        (o k f f k p b b b b b b k w p p b b b b k f f f f f f k k b b k k f f f f f f f f f g g g f f f f f g g k o o)
+        (k f f f k p b b b b b b k k p p b b b b k f f f f f f f f k b b b k k f f f g g g g g g f f f f f g g g g k o)
+        (k f f f b b b b b b b b k k k b b b b k f f f f f g f f k b b b b b b k g g g g g g g f f f f f g g g g g g k)
+        (k f f f b b k k b b b b b b b b b b b k f f f f f g k k b b b b b b b b k g g g g g g g f g g g g g g g k k o)
+        (k f f f f b b b b b b b b b b b b b k g g g f f g g f f k b b b b b b b k g g g g g g f g g g g g k k k o o o)
+        (k f f g f f b b b b b b b b b b b k g g g f f g g g f f k b b b b b b b b k g g g g g g g g g k k g k o o o o)
+        (o k g f f f f k k b b b b b b k k g g f g g g g g f f f k b b b b b b b b k g g g g g g g g g g g k o o o o o)
+        (o k f f f f f f f k k k k k k g g f f g g g g g f f f k b b b b b b b b b k g g g g g g g g g g g k o o o o o)
+        (o k f f f f f f f f f f f g g g f f g g g g g g g g g g k b b b b b b b b k g g g g g g g g g g k o o o o o o)
+        (o k f g f f f f f f f f f f f f f g g g g g k g g g k k b b b b b b b b b k g g g g g g g g g g k o o o o o o)
+        (o o k g f f f f f f f f f f f f f g f g g g g k k k b b b b b b b b b b k k g g g g g g g g g g k o o o o o o)
+        (o o k g g f f f f f f f f f f f f f g g g g g g k k k b b b b b b b b b k k k k g g g g g g k k o o o o o o o)
+        (o o o k g g f f g f f f f f f f f g g g g g g g k b k k b b b b b b b b k o o o k k k k k k o o o o o o o o o)
+        (o o o o k g g g g g f f f f f f g g g k k k k k k b k o k k b b b b b b k o o o o o o o o o o o o o o o o o o)
+        (o o o o o k k k g g g g g g g g g k k b b b b k b b k o o o k k b b b b b k o o o o o o o o o o o o o o o o o)
+        (o o o o o o o o k k k k k g g g k k b b b b b k b b k o o o o k b b b b b k o o o o o o o o o o o o o o o o o)
+        (o o o o o o o o k b b b b k k k o k b b b b b k b k o o o o o k b b b b k o o o o o o o o o o o o o o o o o o)
+        (o o o o o o o o k b b b b k o o o k b b b b b k b k o o o o o k b b b b k o o o o o o o o o o o o o o o o o o)
+        (o o o o o o o o k b b b b k o o o k b b b b k b k o o o o o k b b b b k o o o o o o o o o o o o o o o o o o o)
+        (o o o o o o o o k b b b b k o o o k b b b b k k o o o o o k b b b b b k o o o o o o o o o o o o o o o o o o o)
+        (o o o o o o o k b b b b k k o o o k b b b b k o o o o o o k b b b b k o o o o o o o o o o o o o o o o o o o o)
+        (o o o o o o o k b b b b k o o o k b b b b b k o o o o o o k b b b b k o o o o o o o o o o o o o o o o o o o o)
+        (o o o o o o o k b b b b k o o o k b b b b b k o o o o o o o k k k k o o o o o o o o o o o o o o o o o o o o o)
+        (o o o o o o o o k k k k o o o o k b b b b k o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o)
+        (o o o o o o o o o o o o o o o o o k k k k o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o);
+
+$pixel-color-map: (
+  'b': #F74813,
+  'c': darken(#F74813, 30%),
+  'f': #FEE16B,
+  'g': darken(#FEE16B, 30%),
+  'p': #0002D3,
+  'k': #000,
+  'w': #fff,
+  'o': transparent
+);
+
+.demo3 {
+  .canvas {
+    position: relative;
+    margin: $spacer*3 0;
+    width: $sdot*55;
+    height: $sdot*49;
+    &:after {
+      content: '';
+      position: absolute;
+      top: -$sdot;
+      left: -$sdot;
+      width: $sdot;
+      height: $sdot;
+      box-shadow: pixelize($demo3, $pixel-color-map, $sdot);
+    }
+  }
+}
+
+
+$demo4_1: (o o o y y y y y o o o o)
+          (o y y y y y y y y y o o)
+          (y y y y y y y y y y y o)
+          (y y y y y y y y y y y o)
+          (o o y y y y y y y y y y)
+          (o o o o o y y y y y y y)
+          (o o o o o o o o y y y y)
+          (o o o o o y y y y y y y)
+          (o o y y y y y y y y y y)
+          (y y y y y y y y y y y o)
+          (y y y y y y y y y y y o)
+          (o y y y y y y y y y o o)
+          (o o o y y y y y o o o o);
+
+$demo4_2: (o o o y y y y y o o o o)
+          (o o y y y y y y y y o o)
+          (o y y y y y y y y y y o)
+          (o y y y y y y y y y y o)
+          (y y y y y y y y y y y y)
+          (y y y y y y y y y y y y)
+          (y y y y y y y y y y y y)
+          (y y y y y y y y y y y y)
+          (y y y y y y y y y y y y)
+          (o y y y y y y y y y y o)
+          (o y y y y y y y y y y o)
+          (o o y y y y y y y y o o)
+          (o o o y y y y y o o o o);
+
+$pixel-color-map2: (
+  'y': #FFFF00,
+  'o': transparent
+);
+
+.demo4 {
+  background: $font-color;
+  padding: $spacer;
+  .canvas {
+    display: inline-block;
+    position: relative;
+    margin: $spacer*3 0;
+    width: $sdot*12;
+    height: $sdot*13;
+    transform:translateX(100px);
+   animation: vertical 5s ease infinite;
+    &:after {
+      content: '';
+      position: absolute;
+      top: -$sdot;
+      left: -$sdot;
+      width: $sdot;
+      height: $sdot;
+      animation: packman-frames 0.8s steps(1) infinite ;
+    }
+  }
+}
+
+@keyframes packman-frames {
+  0% {
+    box-shadow: pixelize($demo4_1, $pixel-color-map2, $sdot);
+  }
+  50% {
+    box-shadow: pixelize($demo4_2, $pixel-color-map2, $sdot);
+  }
+}
+@keyframes vertical {
+  0% {
+    transform:translateX(100px);
+  }
+  100% {
+    transform:translateX(-100px);
+  }
+}

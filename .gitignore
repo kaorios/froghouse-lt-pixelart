@@ -1,0 +1,10 @@
+/node_modules/
+/public/
+/npm-debug.log
+/sass/bootstrap/*
+!_normalize.scss
+/sass/_bootstrap.scss
+/sass/_bootstrap-compass.scss
+/sass/_bootstrap-custom.scss
+/sass/_bootstrap-mincer.scss
+/sass/_bootstrap-sprockets.scss

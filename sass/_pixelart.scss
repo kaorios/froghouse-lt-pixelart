@@ -1,0 +1,21 @@
+@function pixelize($matrix, $color-map, $size: 10px) {
+  $length: length($matrix);
+  $pixels: '';
+
+  @for $i from 1 through $length {
+    $row: nth($matrix, $i);
+    @for $j from 1 through length($row){
+      $item: nth($row, $j); 
+
+      @if map-has-key($color-map, $item) {
+        $pixels: $pixels  + ($j*$size) + ' ' + ($i*$size) + ' ' + map-get($color-map, $item);
+      }
+      
+      // 最後の要素出ない場合は、コンマを追加
+      @if not ($j == length($row) and $i == $length) {
+        $pixels: $pixels + ',';
+      }
+    }
+  }
+  @return unquote($pixels);
+}

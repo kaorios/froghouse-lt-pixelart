@@ -1,0 +1,14 @@
+extends ./_layout.jade
+
+block title
+  title DEMO1 - FROG HOUSE LT
+
+block content
+  h1 DEMO1
+  p divを使ってドットを作る方法
+
+  .demo1
+    .canvas
+      - for (var i=0; i<9; i++) {
+        .pixel
+      - }
